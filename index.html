@@ -1,129 +1,395 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>FF BOOSTING - Contoh Sederhana</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #0d1117;
-            color: white;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TD Indo - Topup Diamond Game Terbaik & Terpercaya di Indonesia</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0a0f12',
+              card: '#121a21',
+              cardHover: '#18242e',
+              cyan: '#00f2fe',
+              cyanDark: '#00b8d4',
+              accent: '#4facfe',
+            }
+          }
         }
+      }
+    }
+  </script>
 
-        /* Navigasi */
-        nav {
-            background-color: #161b22;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            text-transform: uppercase;
-        }
-
-        /* Banner Utama */
-        #banner {
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        #banner h1 {
-            color: #fca311;
-        }
-
-        #banner button {
-            background-color: #fca311;
-            color: #0d1117;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        /* Kartu Layanan */
-        .layanan-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .kartu {
-            background-color: #21262d;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            width: 300px;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .kartu h3 {
-            color: #fca311;
-        }
-
-        .kartu button {
-            background-color: transparent;
-            color: #fca311;
-            border: 1px solid #fca311;
-            padding: 8px 16px;
-            cursor: pointer;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #161b22;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.8rem;
-        }
-    </style>
+  <style>
+    body {
+      background-color: #070b0e;
+      color: #e2e8f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .neon-glow {
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+    }
+    .neon-text {
+      text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+    }
+    .card-border {
+      border: 1px solid rgba(0, 242, 254, 0.15);
+    }
+    .card-border:hover {
+      border-color: rgba(0, 242, 254, 0.6);
+      transform: translateY(-2px);
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070b0e;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #18242e;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00f2fe;
+    }
+  </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
 
-    <nav>
-        <span>FF BOOSTING</span>
+  <!-- NAVBAR -->
+  <header class="bg-[#0b1217]/90 backdrop-blur-md sticky top-0 z-50 border-b border-cyan-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- LOGO -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl shadow-lg group-hover:scale-105 transition">
+          <i class="fa-solid fa-gem text-white text-2xl"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-2xl font-black italic tracking-wider text-white flex items-center">
+            TD <span class="text-cyan-400 ml-1">Indo</span>
+          </span>
+          <span class="text-[10px] tracking-widest text-gray-400 -mt-1 font-semibold">TOPUP GAME STORE</span>
+        </div>
+      </a>
+
+      <!-- SEARCH BAR -->
+      <div class="hidden md:flex flex-1 max-w-md mx-6 relative">
+        <input 
+          type="text" 
+          id="searchInput"
+          placeholder="Cari Game atau Akun..." 
+          class="w-full bg-[#131d24] text-sm text-gray-200 placeholder-gray-500 rounded-full py-2.5 pl-11 pr-4 border border-cyan-900/40 focus:outline-none focus:border-cyan-400 transition"
+        >
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-3 text-gray-400"></i>
+      </div>
+
+      <!-- NAV MENU & LOGIN -->
+      <div class="flex items-center gap-6">
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-gray-300">
+          <a href="#" class="text-cyan-400 border-b-2 border-cyan-400 pb-1">BERANDA</a>
+          <a href="#game-list" class="hover:text-cyan-400 transition">GAME TERPOPULER</a>
+          <a href="#" class="hover:text-cyan-400 transition">HARGA</a>
+          <a href="#" class="hover:text-cyan-400 transition">LAYANAN <i class="fa-solid fa-chevron-down text-xs ml-1"></i></a>
+          <a href="#" class="hover:text-cyan-400 transition">TENTANG KAMI</a>
+          <a href="#" class="hover:text-cyan-400 transition">KONTAK</a>
+        </nav>
+
+        <button onclick="openModal('MASUK / DAFTAR')" class="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-bold text-xs uppercase px-5 py-2.5 rounded-full transition transform active:scale-95 shadow-md shadow-cyan-500/20">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>MASUK / DAFTAR</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative py-12 md:py-16 overflow-hidden bg-gradient-to-b from-[#0e171e] via-[#091015] to-[#070b0e]">
+    <!-- Background Decor -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#00f2fe_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 relative z-10 text-center">
+      <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-wide uppercase mb-4 neon-text">
+        TOPUP DIAMOND GAME TERBAIK & TERPERCAYA DI INDONESIA!
+      </h1>
+      <p class="text-gray-300 text-sm md:text-base max-w-2xl mx-auto mb-10 leading-relaxed">
+        Beli Diamond, UC, CP, Genesis Crystals dengan harga murah, proses instan, dan pembayaran lengkap!
+      </p>
+
+      <!-- FEATURE HIGHLIGHTS BADGE -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <div class="bg-[#121c24]/80 backdrop-blur border border-cyan-500/20 rounded-xl p-3 flex items-center justify-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <span class="text-xs md:text-sm font-semibold text-gray-200">1. Proses Instan</span>
+        </div>
+
+        <div class="bg-[#121c24]/80 backdrop-blur border border-cyan-500/20 rounded-xl p-3 flex items-center justify-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm">
+            <i class="fa-solid fa-shield-check"></i>
+          </div>
+          <span class="text-xs md:text-sm font-semibold text-gray-200">2. Murah & Resmi</span>
+        </div>
+
+        <div class="bg-[#121c24]/80 backdrop-blur border border-cyan-500/20 rounded-xl p-3 flex items-center justify-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm">
+            <i class="fa-solid fa-gift"></i>
+          </div>
+          <span class="text-xs md:text-sm font-semibold text-gray-200">3. Banyak Bonus</span>
+        </div>
+
+        <div class="bg-[#121c24]/80 backdrop-blur border border-cyan-500/20 rounded-xl p-3 flex items-center justify-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <span class="text-xs md:text-sm font-semibold text-gray-200">4. Dukungan 24/7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN GAME LIST -->
+  <main id="game-list" class="max-w-6xl mx-auto px-4 py-10 flex-grow w-full">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="gameGrid">
+
+      <!-- CARD 1: MOBILE LEGENDS -->
+      <div class="game-card bg-[#121a21] rounded-2xl p-4 card-border transition duration-300 relative group flex flex-col justify-between">
+        <span class="absolute top-3 left-3 bg-cyan-950 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md border border-cyan-800">1</span>
+        <div class="flex items-center gap-4 mb-4 mt-2">
+          <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-900 p-1 flex-shrink-0 shadow-md">
+            <div class="w-full h-full bg-[#18242e] rounded-lg flex items-center justify-center overflow-hidden">
+              <i class="fa-solid fa-gem text-3xl text-cyan-400"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-white font-extrabold text-base tracking-wide">MOBILE LEGENDS</h3>
+            <p class="text-gray-400 text-xs mt-1">Diamond MLBB</p>
+            <p class="text-cyan-400 text-xs font-semibold mt-0.5">10 - 10,000 D</p>
+            <p class="text-white font-bold text-xs mt-1">Rp 1.500</p>
+          </div>
+        </div>
+        <button onclick="openModal('Mobile Legends')" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold text-xs uppercase py-2.5 rounded-lg transition transform active:scale-95 shadow-md shadow-cyan-400/20">
+          BELI SEKARANG
+        </button>
+      </div>
+
+      <!-- CARD 2: PUBG MOBILE -->
+      <div class="game-card bg-[#121a21] rounded-2xl p-4 card-border transition duration-300 relative group flex flex-col justify-between">
+        <span class="absolute top-3 left-3 bg-cyan-950 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md border border-cyan-800">2</span>
+        <div class="flex items-center gap-4 mb-4 mt-2">
+          <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 p-1 flex-shrink-0 shadow-md">
+            <div class="w-full h-full bg-[#18242e] rounded-lg flex items-center justify-center font-black text-amber-400 text-xl tracking-wider">
+              UC
+            </div>
+          </div>
+          <div>
+            <h3 class="text-white font-extrabold text-base tracking-wide">PUBG MOBILE</h3>
+            <p class="text-gray-400 text-xs mt-1">UC PUBG</p>
+            <p class="text-cyan-400 text-xs font-semibold mt-0.5">60 - 10,000 UC</p>
+            <p class="text-white font-bold text-xs mt-1">Rp 3.000</p>
+          </div>
+        </div>
+        <button onclick="openModal('PUBG Mobile')" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold text-xs uppercase py-2.5 rounded-lg transition transform active:scale-95 shadow-md shadow-cyan-400/20">
+          BELI SEKARANG
+        </button>
+      </div>
+
+      <!-- CARD 3: GENSHIN IMPACT -->
+      <div class="game-card bg-[#121a21] rounded-2xl p-4 card-border transition duration-300 relative group flex flex-col justify-between">
+        <span class="absolute top-3 left-3 bg-cyan-950 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md border border-cyan-800">4</span>
+        <div class="flex items-center gap-4 mb-4 mt-2">
+          <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-cyan-400 to-sky-700 p-1 flex-shrink-0 shadow-md">
+            <div class="w-full h-full bg-[#18242e] rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-sparkles text-3xl text-sky-300"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-white font-extrabold text-base tracking-wide">GENSHIN IMPACT</h3>
+            <p class="text-gray-400 text-xs mt-1">Genshin Crystals</p>
+            <p class="text-cyan-400 text-xs font-semibold mt-0.5">60 - 6,480 GC</p>
+            <p class="text-white font-bold text-xs mt-1">Rp 12.000</p>
+          </div>
+        </div>
+        <button onclick="openModal('Genshin Impact')" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold text-xs uppercase py-2.5 rounded-lg transition transform active:scale-95 shadow-md shadow-cyan-400/20">
+          BELI SEKARANG
+        </button>
+      </div>
+
+      <!-- CARD 4: CALL OF DUTY MOBILE -->
+      <div class="game-card bg-[#121a21] rounded-2xl p-4 card-border transition duration-300 relative group flex flex-col justify-between">
+        <span class="absolute top-3 left-3 bg-cyan-950 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md border border-cyan-800">5</span>
+        <div class="flex items-center gap-4 mb-4 mt-2">
+          <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-yellow-600 to-amber-900 p-1 flex-shrink-0 shadow-md">
+            <div class="w-full h-full bg-[#18242e] rounded-lg flex items-center justify-center font-black text-yellow-500 text-xl">
+              CP
+            </div>
+          </div>
+          <div>
+            <h3 class="text-white font-extrabold text-base tracking-wide">CALL OF DUTY MOB...</h3>
+            <p class="text-gray-400 text-xs mt-1">CP CODM</p>
+            <p class="text-cyan-400 text-xs font-semibold mt-0.5">80 - 8,000 CP</p>
+            <p class="text-white font-bold text-xs mt-1">Rp 5.000</p>
+          </div>
+        </div>
+        <button onclick="openModal('Call of Duty Mobile')" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold text-xs uppercase py-2.5 rounded-lg transition transform active:scale-95 shadow-md shadow-cyan-400/20">
+          BELI SEKARANG
+        </button>
+      </div>
+
+      <!-- CARD 5: ARENA OF VALOR -->
+      <div class="game-card bg-[#121a21] rounded-2xl p-4 card-border transition duration-300 relative group flex flex-col justify-between">
+        <span class="absolute top-3 left-3 bg-cyan-950 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md border border-cyan-800">6</span>
+        <div class="flex items-center gap-4 mb-4 mt-2">
+          <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-purple-600 to-blue-900 p-1 flex-shrink-0 shadow-md">
+            <div class="w-full h-full bg-[#18242e] rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-shield text-3xl text-purple-400"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-white font-extrabold text-base tracking-wide">ARENA OF VALOR</h3>
+            <p class="text-gray-400 text-xs mt-1">AOV Vouchers</p>
+            <p class="text-cyan-400 text-xs font-semibold mt-0.5">10 - 5,000 V</p>
+            <p class="text-white font-bold text-xs mt-1">Rp 2.000</p>
+          </div>
+        </div>
+        <button onclick="openModal('Arena of Valor')" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold text-xs uppercase py-2.5 rounded-lg transition transform active:scale-95 shadow-md shadow-cyan-400/20">
+          BELI SEKARANG
+        </button>
+      </div>
+
+      <!-- CARD 6: VALORANT -->
+      <div class="game-card bg-[#121a21] rounded-2xl p-4 card-border transition duration-300 relative group flex flex-col justify-between">
+        <span class="absolute top-3 left-3 bg-cyan-950 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md border border-cyan-800">7</span>
+        <div class="flex items-center gap-4 mb-4 mt-2">
+          <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-red-500 to-rose-900 p-1 flex-shrink-0 shadow-md">
+            <div class="w-full h-full bg-[#18242e] rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-v text-3xl text-red-500 font-black"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-white font-extrabold text-base tracking-wide">VALORANT</h3>
+            <p class="text-gray-400 text-xs mt-1">Valorant Points</p>
+            <p class="text-cyan-400 text-xs font-semibold mt-0.5">100 - 10,000 VP</p>
+            <p class="text-white font-bold text-xs mt-1">Rp 7.000</p>
+          </div>
+        </div>
+        <button onclick="openModal('VALORANT')" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold text-xs uppercase py-2.5 rounded-lg transition transform active:scale-95 shadow-md shadow-cyan-400/20">
+          BELI SEKARANG
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- PAYMENT METHODS BANNER -->
+  <section class="max-w-6xl mx-auto px-4 my-8 w-full">
+    <div class="bg-[#121a21] border border-cyan-900/30 rounded-2xl p-6 text-center shadow-lg">
+      <h3 class="text-white font-extrabold text-sm uppercase tracking-wider mb-4">
+        PEMBAYARAN LENGKAP & AMAN!
+      </h3>
+      
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <!-- DANA -->
+        <div class="bg-[#008cff] text-white font-black italic px-4 py-2 rounded-lg text-xs tracking-wider shadow">
+          DANA
+        </div>
+        <!-- OVO -->
+        <div class="bg-[#4c2a86] text-white font-black px-4 py-2 rounded-lg text-xs tracking-wider shadow">
+          OVO
+        </div>
+        <!-- GOPAY -->
+        <div class="bg-[#00a5cf] text-white font-black px-4 py-2 rounded-lg text-xs tracking-wider shadow">
+          gopay
+        </div>
+        <!-- LINKAJA -->
+        <div class="bg-[#e1251b] text-white font-black px-4 py-2 rounded-lg text-xs tracking-wider shadow">
+          LinkAja
+        </div>
+        <!-- SHOPEEPAY -->
+        <div class="bg-[#ee4d2d] text-white font-black px-4 py-2 rounded-lg text-xs tracking-wider shadow">
+          ShopeePay
+        </div>
+        <!-- BRI -->
+        <div class="bg-[#00529c] text-white font-black px-4 py-2 rounded-lg text-xs tracking-wider shadow">
+          BRI
+        </div>
+        <!-- BNI -->
+        <div class="bg-[#f15a24] text-white font-black px-4 py-2 rounded-lg text-xs tracking-wider shadow">
+          BNI
+        </div>
+        <!-- BCA -->
+        <div class="bg-[#0060af] text-white font-black px-4 py-2 rounded-lg text-xs tracking-wider shadow">
+          BCA
+        </div>
+        <!-- MANDIRI -->
+        <div class="bg-[#002d62] text-amber-400 font-black px-4 py-2 rounded-lg text-xs tracking-wider shadow">
+          mandırı
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0b1217] border-t border-cyan-900/30 py-6 text-xs text-gray-400">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        © 2024 TOPUP DIAMOND INDO. Hak Cipta Dilindungi.
+      </div>
+      <div class="flex items-center gap-4 text-base">
+        <a href="#" class="hover:text-cyan-400 transition"><i class="fa-brands fa-telegram"></i></a>
+        <a href="#" class="hover:text-cyan-400 transition"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="hover:text-cyan-400 transition"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="hover:text-cyan-400 transition"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL CHECKOUT / ACTION -->
+  <div id="actionModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#121a21] border border-cyan-500/40 rounded-2xl max-w-md w-full p-6 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <h3 id="modalTitle" class="text-xl font-extrabold text-white mb-2">Form Pemesanan</h3>
+      <p class="text-xs text-gray-400 mb-4">Masukkan ID Game Anda dan pilih nominal topup.</p>
+
+      <form onsubmit="handleOrder(event)" class="space-y-4">
         <div>
-            <a href="#">Beranda</a>
-            <a href="#">Jasa Joki</a>
-            <a href="#">Testimoni</a>
-            <!-- Tambahkan link lainnya -->
+          <label class="block text-xs font-semibold text-gray-300 mb-1">ID Game / User ID</label>
+          <input type="text" required placeholder="Contoh: 12345678 (1234)" class="w-full bg-[#18242e] text-sm text-white rounded-lg p-2.5 border border-cyan-900/50 focus:outline-none focus:border-cyan-400">
         </div>
-    </nav>
 
-    <div id="banner">
-        <h1>JASA JOKI FREE FIRE TERPERCAYA - NAIKKAN RANK ANDA SEKARANG!</h1>
-        <p>Aman, Cepat, Profesional & Bergaransi. Sampai Heroic/Grandmaster dengan Mudah.</p>
-        <button>Pesan Joki Sekarang</button>
-    </div>
-
-    <div class="layanan-container">
-        <div class="kartu">
-            <h3>JOKI RANKED</h3>
-            <!-- Ikon & detail -->
-            <button>Beli Sekarang</button>
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Pilih Nominal</label>
+          <select class="w-full bg-[#18242e] text-sm text-white rounded-lg p-2.5 border border-cyan-900/50 focus:outline-none focus:border-cyan-400">
+            <option> Paket Hemat - Rp 5.000</option>
+            <option> Paket Medium - Rp 25.000</option>
+            <option> Paket Sultan - Rp 100.000</option>
+          </select>
         </div>
-        <div class="kartu">
-            <h3>JOKI KD/KILLS</h3>
-            <!-- Ikon & detail -->
-            <button>Beli Sekarang</button>
-        </div>
-        <div class="kartu">
-            <h3>JOKI ACHIVEMENT</h3>
-            <!-- Ikon & detail -->
-            <button>Beli Sekarang</button>
-        </div>
-    </div>
 
-    <footer>
-        &copy; 2024 FF BOOSTING - All Rights Reserved
-    </footer>
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Metode Pembayaran</label>
+          <select class="w-full bg-[#18242e] text-sm text-white rounded-lg p-2.5 border border-cyan-900/50 focus:outline-none focus:border-cyan-400">
+            <option>DANA</option>
+            <option>OVO</option>
+            <option>GoPay</option>
+            <option>Transfer Bank (BCA / Mandiri / BRI)</option>
+          </select>
+        </div>
 
-</body>
-</html>
+        <button type="submit" clas
