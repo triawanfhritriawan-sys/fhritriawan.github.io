@@ -106,7 +106,7 @@
           <a href="javascript:void(0)" id="nav-kontak" onclick="navigateTo('kontak')" class="hover:text-cyan-400 pb-1 transition">KONTAK</a>
         </nav>
 
-        <button onclick="openAuthModal('login')" class="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-bold text-xs uppercase px-5 py-2.5 rounded-full transition transform active:scale-95 shadow-md shadow-cyan-500/20">
+        <button onclick="openAuthModal()" class="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-bold text-xs uppercase px-5 py-2.5 rounded-full transition transform active:scale-95 shadow-md shadow-cyan-500/20">
           <i class="fa-solid fa-right-to-bracket"></i>
           <span>MASUK / DAFTAR</span>
         </button>
@@ -178,7 +178,7 @@
               </div>
             </div>
             <div>
-              <h3 class="text-white font-extrabold text-base tracking-wide">MOBILE LEGENDS</h3>
+              <h3 class="text-white font-extrabold text-base tracking-wide game-title">MOBILE LEGENDS</h3>
               <p class="text-gray-400 text-xs mt-1">Diamond MLBB</p>
               <p class="text-cyan-400 text-xs font-semibold mt-0.5">10 - 10,000 D</p>
               <p class="text-white font-bold text-xs mt-1">Mulai Rp 1.500</p>
@@ -199,7 +199,7 @@
               </div>
             </div>
             <div>
-              <h3 class="text-white font-extrabold text-base tracking-wide">PUBG MOBILE</h3>
+              <h3 class="text-white font-extrabold text-base tracking-wide game-title">PUBG MOBILE</h3>
               <p class="text-gray-400 text-xs mt-1">UC PUBG</p>
               <p class="text-cyan-400 text-xs font-semibold mt-0.5">60 - 10,000 UC</p>
               <p class="text-white font-bold text-xs mt-1">Mulai Rp 3.000</p>
@@ -212,7 +212,7 @@
 
         <!-- GAME 3: GENSHIN IMPACT -->
         <div class="game-card bg-[#121a21] rounded-2xl p-4 card-border transition duration-300 relative group flex flex-col justify-between">
-          <span class="absolute top-3 left-3 bg-cyan-950 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md border border-cyan-800">4</span>
+          <span class="absolute top-3 left-3 bg-cyan-950 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md border border-cyan-800">3</span>
           <div class="flex items-center gap-4 mb-4 mt-2">
             <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-cyan-400 to-sky-700 p-1 flex-shrink-0 shadow-md">
               <div class="w-full h-full bg-[#18242e] rounded-lg flex items-center justify-center">
@@ -220,134 +220,6 @@
               </div>
             </div>
             <div>
-              <h3 class="text-white font-extrabold text-base tracking-wide">GENSHIN IMPACT</h3>
+              <h3 class="text-white font-extrabold text-base tracking-wide game-title">GENSHIN IMPACT</h3>
               <p class="text-gray-400 text-xs mt-1">Genshin Crystals</p>
-              <p class="text-cyan-400 text-xs font-semibold mt-0.5">60 - 6,480 GC</p>
-              <p class="text-white font-bold text-xs mt-1">Mulai Rp 12.000</p>
-            </div>
-          </div>
-          <button onclick="openCheckout('Genshin Impact', 'Genesis Crystals', '60 - 6,480 GC')" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold text-xs uppercase py-2.5 rounded-lg transition transform active:scale-95 shadow-md shadow-cyan-400/20">
-            BELI SEKARANG
-          </button>
-        </div>
-
-        <!-- GAME 4: CALL OF DUTY MOBILE -->
-        <div class="game-card bg-[#121a21] rounded-2xl p-4 card-border transition duration-300 relative group flex flex-col justify-between">
-          <span class="absolute top-3 left-3 bg-cyan-950 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md border border-cyan-800">5</span>
-          <div class="flex items-center gap-4 mb-4 mt-2">
-            <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-yellow-600 to-amber-900 p-1 flex-shrink-0 shadow-md">
-              <div class="w-full h-full bg-[#18242e] rounded-lg flex items-center justify-center font-black text-yellow-500 text-xl">
-                CP
-              </div>
-            </div>
-            <div>
-              <h3 class="text-white font-extrabold text-base tracking-wide">CALL OF DUTY MOBILE</h3>
-              <p class="text-gray-400 text-xs mt-1">CP CODM</p>
-              <p class="text-cyan-400 text-xs font-semibold mt-0.5">80 - 8,000 CP</p>
-              <p class="text-white font-bold text-xs mt-1">Mulai Rp 5.000</p>
-            </div>
-          </div>
-          <button onclick="openCheckout('Call of Duty Mobile', 'CP CODM', '80 - 8,000 CP')" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold text-xs uppercase py-2.5 rounded-lg transition transform active:scale-95 shadow-md shadow-cyan-400/20">
-            BELI SEKARANG
-          </button>
-        </div>
-
-        <!-- GAME 5: ARENA OF VALOR -->
-        <div class="game-card bg-[#121a21] rounded-2xl p-4 card-border transition duration-300 relative group flex flex-col justify-between">
-          <span class="absolute top-3 left-3 bg-cyan-950 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md border border-cyan-800">6</span>
-          <div class="flex items-center gap-4 mb-4 mt-2">
-            <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-purple-600 to-blue-900 p-1 flex-shrink-0 shadow-md">
-              <div class="w-full h-full bg-[#18242e] rounded-lg flex items-center justify-center">
-                <i class="fa-solid fa-shield text-3xl text-purple-400"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-white font-extrabold text-base tracking-wide">ARENA OF VALOR</h3>
-              <p class="text-gray-400 text-xs mt-1">AOV Vouchers</p>
-              <p class="text-cyan-400 text-xs font-semibold mt-0.5">10 - 5,000 V</p>
-              <p class="text-white font-bold text-xs mt-1">Mulai Rp 2.000</p>
-            </div>
-          </div>
-          <button onclick="openCheckout('Arena of Valor', 'AOV Vouchers', '10 - 5,000 V')" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold text-xs uppercase py-2.5 rounded-lg transition transform active:scale-95 shadow-md shadow-cyan-400/20">
-            BELI SEKARANG
-          </button>
-        </div>
-
-        <!-- GAME 6: VALORANT -->
-        <div class="game-card bg-[#121a21] rounded-2xl p-4 card-border transition duration-300 relative group flex flex-col justify-between">
-          <span class="absolute top-3 left-3 bg-cyan-950 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md border border-cyan-800">7</span>
-          <div class="flex items-center gap-4 mb-4 mt-2">
-            <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-red-500 to-rose-900 p-1 flex-shrink-0 shadow-md">
-              <div class="w-full h-full bg-[#18242e] rounded-lg flex items-center justify-center">
-                <i class="fa-solid fa-v text-3xl text-red-500 font-black"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-white font-extrabold text-base tracking-wide">VALORANT</h3>
-              <p class="text-gray-400 text-xs mt-1">Valorant Points</p>
-              <p class="text-cyan-400 text-xs font-semibold mt-0.5">100 - 10,000 VP</p>
-              <p class="text-white font-bold text-xs mt-1">Mulai Rp 7.000</p>
-            </div>
-          </div>
-          <button onclick="openCheckout('VALORANT', 'Valorant Points', '100 - 10,000 VP')" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold text-xs uppercase py-2.5 rounded-lg transition transform active:scale-95 shadow-md shadow-cyan-400/20">
-            BELI SEKARANG
-          </button>
-        </div>
-
-      </div>
-    </main>
-
-    <!-- METODE PEMBAYARAN -->
-    <section class="max-w-6xl mx-auto px-4 my-8 w-full">
-      <div class="bg-[#121a21] border border-cyan-900/30 rounded-2xl p-6 text-center shadow-lg">
-        <h3 class="text-white font-extrabold text-sm uppercase tracking-wider mb-4">
-          PEMBAYARAN LENGKAP & AMAN!
-        </h3>
-        
-        <div class="flex flex-wrap items-center justify-center gap-3">
-          <div class="bg-[#008cff] text-white font-black italic px-4 py-2 rounded-lg text-xs shadow">DANA</div>
-          <div class="bg-[#4c2a86] text-white font-black px-4 py-2 rounded-lg text-xs shadow">OVO</div>
-          <div class="bg-[#00a5cf] text-white font-black px-4 py-2 rounded-lg text-xs shadow">gopay</div>
-          <div class="bg-[#e1251b] text-white font-black px-4 py-2 rounded-lg text-xs shadow">LinkAja</div>
-          <div class="bg-[#ee4d2d] text-white font-black px-4 py-2 rounded-lg text-xs shadow">ShopeePay</div>
-          <div class="bg-[#00529c] text-white font-black px-4 py-2 rounded-lg text-xs shadow">BRI</div>
-          <div class="bg-[#f15a24] text-white font-black px-4 py-2 rounded-lg text-xs shadow">BNI</div>
-          <div class="bg-[#0060af] text-white font-black px-4 py-2 rounded-lg text-xs shadow">BCA</div>
-          <div class="bg-[#002d62] text-amber-400 font-black px-4 py-2 rounded-lg text-xs shadow">mandırı</div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ================= HALAMAN 2: GAME TERPOPULER ================= -->
-  <div id="page-games" class="page-content hidden max-w-6xl mx-auto px-4 py-12 w-full">
-    <h2 class="text-2xl font-black text-white mb-2 uppercase tracking-wide flex items-center gap-2">
-      <i class="fa-solid fa-fire text-cyan-400"></i> Semuanya Game Terpopuler
-    </h2>
-    <p class="text-gray-400 text-sm mb-8">Pilih game favoritmu dan nikmati penawaran diskon topup tercepat!</p>
-    
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div class="bg-[#121a21] border border-cyan-900/40 p-5 rounded-xl text-center">
-        <i class="fa-solid fa-gem text-4xl text-cyan-400 mb-3"></i>
-        <h3 class="text-white font-bold text-lg">Mobile Legends</h3>
-        <p class="text-xs text-gray-400 my-2">Proses Kilat 1-3 Detik Lengkap dengan Bonus Diamond.</p>
-        <button onclick="openCheckout('Mobile Legends', 'Diamond MLBB', '10 - 10,000 D')" class="mt-2 w-full bg-cyan-400 text-black font-bold py-2 rounded-lg text-xs">TOP UP NOW</button>
-      </div>
-
-      <div class="bg-[#121a21] border border-cyan-900/40 p-5 rounded-xl text-center">
-        <i class="fa-solid fa-crosshairs text-4xl text-amber-400 mb-3"></i>
-        <h3 class="text-white font-bold text-lg">PUBG Mobile</h3>
-        <p class="text-xs text-gray-400 my-2">UC Murah Garansi Resmi Tencent Games.</p>
-        <button onclick="openCheckout('PUBG Mobile', 'UC PUBG', '60 - 10,000 UC')" class="mt-2 w-full bg-cyan-400 text-black font-bold py-2 rounded-lg text-xs">TOP UP NOW</button>
-      </div>
-
-      <div class="bg-[#121a21] border border-cyan-900/40 p-5 rounded-xl text-center">
-        <i class="fa-solid fa-star text-4xl text-sky-400 mb-3"></i>
-        <h3 class="text-white font-bold text-lg">Genshin Impact</h3>
-        <p class="text-xs text-gray-400 my-2">Blessing of the Welkin Moon & Genesis Crystals.</p>
-        <button onclick="openCheckout('Genshin Impact', 'Genesis Crystals', '60 - 6,480 GC')" class="mt-2 w-full bg-cyan-400 text-black font-bold py-2 rounded-lg text-xs">TOP UP NOW</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= HALAMAN 3: DAFTAR HARGA ============
+              <p class="text-cyan-400 text-xs
