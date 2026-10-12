@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SociaLink - Beranda Media Sosial</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        /* --- CONTAINER UTAMA --- */
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* --- KOTAK BUAT POSTINGAN --- */
+        .create-post-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .create-post-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .create-post-header img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .create-post-header textarea {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            resize: none;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .create-post-header textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .create-post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+        }
+
+        .post-actions-left {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .action-btn-icon {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: var(--transition);
+        }
+
+        .action-btn-icon:hover {
+            color: var(--primary);
+        }
+
+        /* --- TOMBOL UTAMA YANG BISA DIPENCET --- */
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* --- FEED / KARTU POSTINGAN --- */
+        .post-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+            border: 1px solid var(--border-color);
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .post-user {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .post-user img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .post-user-info h4 {
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .post-user-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .post-body {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .post-media {
+            width: 100%;
+            border-radius: 0.75rem;
+            max-height: 400px;
+            object-fit: cover;
+            margin-top: 0.75rem;
+        }
+
+        .post-footer {
+            display: flex;
+            gap: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+        }
+
+        .interaction-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .interaction-btn.liked {
+            color: #e11d48;
+        }
+
+        .interaction-btn:hover {
+            color: var(--primary);
+        }
+
+        /* --- FOOTER HALAMAN --- */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 640px) {
+            header {
+                padding: 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi Atas -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-earth-asia"></i> SociaLink
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" class="active"><i class="fa-solid fa-house"></i> Beranda</a></li>
+            <li><a href="#"><i class="fa-solid fa-bell"></i> Notifikasi</a></li>
+            <li><a href="#"><i class="fa-solid fa-envelope"></i> Pesan</a></li>
+        </ul>
+        <div class="user-profile">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Foto Profil">
+            <span style="font-weight: 600; font-size: 0.9rem;">Siti Rahma</span>
+        </div>
+    </header>
+
+    <!-- Konten Utama -->
+    <div class="container">
+        
+        <!-- Kotak Bikin Postingan Baru -->
+        <div class="create-post-card">
+            <div class="create-post-header">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Profil">
+                <textarea id="postInput" rows="2" placeholder="Apa yang sedang Anda pikirkan hari ini?"></textarea>
+            </div>
+            <div class="create-post-footer">
+                <div class="post-actions-left">
+                    <button class="action-btn-icon"><i class="fa-solid fa-image" style="color: #10b981;"></i> Foto</button>
+                    <button class="action-btn-icon"><i class="fa-solid fa-face-smile" style="color: #f59e0b;"></i> Emoji</button>
+                </div>
+                <!-- Tombol yang bisa dipencet untuk membuat postingan -->
+                <button class="btn-primary" onclick="buatPostingan()">
+                    <i class="fa-solid fa-paper-plane"></i> Kirim
+                </button>
+            </div>
+        </div>
+
+        <!-- Daftar Postingan (Feed Container) -->
+        <div id="feedContainer">
+            <!-- Postingan Contoh 1 -->
+            <div class="post-card">
+                <div class="post-header">
+                    <div class="post-user">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Budi">
+                        <div class="post-user-info">
+                            <h4>Budi Santoso</h4>
+                            <span>Baru saja • <i class="fa-solid fa-earth-americas"></i></span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-ellipsis" style="color: var(--text-muted); cursor: pointer;"></i>
+                </div>
+                <div class="post-body">
+                    Halo teman-teman semua! Senang sekali bisa bergabung di platform media sosial baru ini. Semoga harinya menyenangkan! ✨
+                </div>
+                <div class="post-footer">
+                    <button class="interaction-btn" onclick="toggleLike(this)">
+                        <i class="fa-regular fa-heart"></i> <span class="like-count">14</span> Suka
+                    </button>
+                    <button class="interaction-btn">
+                        <i class="fa-regular fa-comment"></i> 3 Komentar
+                    </button>
+                    <button class="interaction-btn">
+                        <i class="fa-solid fa-share"></i> Bagikan
+                    </button>
+                </div>
+            </div>
+
+            <!-- Postingan Contoh 2 -->
+            <div class="post-card">
+                <div class="post-header">
+                    <div class="post-user">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Dewi">
+                        <div class="post-user-info">
+                            <h4>Dewi Lestari</h4>
+                            <span>2 jam yang lalu • <i class="fa-solid fa-earth-americas"></i></span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-ellipsis" style="color: var(--text-muted); cursor: pointer;"></i>
+                </div>
+                <div class="post-body">
+                    Menikmati pemandangan sore hari yang sangat indah di Yogyakarta. Ada yang lagi di sini juga? 🌅
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600" alt="Pemandangan" class="post-media">
+                </div>
+                <div class="post-footer">
+                    <button class="interaction-btn" onclick="toggleLike(this)">
+                        <i class="fa-regular fa-heart"></i> <span class="like-count">48</span> Suka
+                    </button>
+                    <button class="interaction-btn">
+                        <i class="fa-regular fa-comment"></i> 12 Komentar
+                    </button>
+                    <button class="interaction-btn">
+                        <i class="fa-solid fa-share"></i> Bagikan
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SociaLink Indonesia. Dibuat dengan penuh ❤️ menggunakan HTML, CSS, & JavaScript.</p>
+    </footer>
+
+    <!-- JavaScript Interaktif -->
+    <script>
+        // Fungsi untuk membuat postingan baru saat tombol "Kirim" dipencet
+        function buatPostingan() {
+            const input = document.getElementById('postInput');
+            const teks = input.value.trim();
+
+            if (teks === "") {
+                alert("Tuliskan sesuatu terlebih dahulu sebelum mengirim!");
+                return;
+            }
+
+            const feedContainer = document.getElementById('feedContainer');
+
+            // Buat elemen card postingan baru
+            const postCard = document.createElement('div');
+            postCard.className = 'post-card';
+            postCard.innerHTML = `
+                <div class="post-header">
+                    <div class="post-user">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Siti Rahma">
+                        <div class="post-user-info">
+                            <h4>Siti Rahma</h4>
+                            <span>Baru saja • <i class="fa-solid fa-earth-americas"></i></span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-ellipsis" style="color: var(--text-muted); cursor: pointer;"></i>
+                </div>
+                <div class="post-body">
+                    ${escapeHtml(teks)}
+                </div>
+                <div class="post-footer">
+                    <button class="interaction-btn" onclick="toggleLike(this)">
+                        <i class="fa-regular fa-heart"></i> <span class="like-count">0</span> Suka
+                    </button>
+                    <button class="interaction-btn">
+                        <i class="fa-regular fa-comment"></i> 0 Komentar
+                    </button>
+                    <button class="interaction-btn">
+                        <i class="fa-solid fa-share"></i> Bagikan
+                    </button>
+                </div>
+            `;
+
+            // Masukkan ke bagian atas feed
+            feedContainer.prepend(postCard);
+
+            // Kosongkan textarea setelah terkirim
+            input.value = "";
+        }
+
+        // Fungsi tombol Suka (Like) yang bisa dipencet berganti warna dan bertambah jumlahnya
+        function toggleLike(btn) {
+            const icon = btn.querySelector('i');
+            const countSpan = btn.querySelector('.like-count');
+            let count = parseInt(countSpan.textContent);
+
+            if (btn.classList.contains('liked')) {
+                btn.classList.remove('liked');
+                icon.classList.remove('fa-solid');
+                icon.classList.add('fa-regular');
+                countSpan.textContent = count - 1;
+            } else {
+                btn.classList.add('liked');
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid');
+                countSpan.textContent = count + 1;
+            }
+        }
+
+        // Fungsi keamanan kecil untuk teks input
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+    </script>
+</body>
+</html>
